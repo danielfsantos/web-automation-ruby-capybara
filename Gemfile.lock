@@ -126,7 +126,7 @@ DEPENDENCIES
   cucumber (~> 10.1)
   pry (~> 0.15)
   rspec (~> 3.13)
-  selenium-webdriver (~> 4.47)
+  selenium-webdriver (~> 4.48)
   site_prism (~> 5.1)
 
 CHECKSUMS
