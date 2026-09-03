@@ -1,0 +1,37 @@
+name: Testes Automatizados (Ruby)
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar o Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true # Instala e faz cache automático do Gemfile
+
+      - name: Instalar Chrome e ChromeDriver
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+
+      - name: Verificar versões das ferramentas
+        run: |
+          ruby -v
+          google-chrome --version
+          chromedriver --version
+
+      - name: Executar testes com Cucumber
+        run: bundle exec cucumber
+        env:
+          HEADLESS: true
