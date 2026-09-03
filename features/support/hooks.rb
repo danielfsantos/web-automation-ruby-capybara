@@ -1,17 +1,16 @@
 require 'pry'
-$URL = "https://www.artwax.com.br/"
-$dir_evidencias = Dir.pwd + "/evidencias"
-$screen = 1
+$URL = "https://www.saucedemo.com/"
+DIR_EVIDENCIAS_BASE = File.join(Dir.pwd + "/evidencias")
 $utilities = UtilsCustomMethods.new
 
 Before do |scenario|
-   nome_cenario = scenario.name
-   $dir_evidencias_cenario = $dir_evidencias += "/" + nome_cenario
-   $utilities.create_directory $dir_evidencias_cenario
+  @dir_evidencias_cenario = File.join(DIR_EVIDENCIAS_BASE, scenario.name)
+  $utilities.create_directory @dir_evidencias_cenario
+  @screen = 1
 end
 
 AfterStep do |scenario|
-    screenshot =  $dir_evidencias_cenario + "/" + $screen.to_s + '.png'
-    page.driver.browser.save_screenshot screenshot
-    $screen+=1
+   screenshot = File.join(@dir_evidencias_cenario, "#{@screen}.png")
+   page.driver.browser.save_screenshot screenshot
+   @screen += 1 
 end

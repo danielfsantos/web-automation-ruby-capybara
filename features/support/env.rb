@@ -9,8 +9,9 @@ RSpec.configure do |config|
   end
 
 Capybara.register_driver :selenium do |app|
-	capabilities = Selenium::WebDriver::Remote::Capabilities.chrome('chromeOptions' => { 'args' =>['--start-maximized']})
-	Capybara::Selenium::Driver.new(app, :browser => :chrome, desired_capabilities: capabilities)
+	options = Selenium::WebDriver::Options.chrome
+	options.add_argument('--start-maximized')
+	Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 
 Capybara.default_driver = :selenium

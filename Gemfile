@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'capybara'
-gem 'site_prism'
-gem 'selenium-webdriver'
-gem 'cucumber'
-gem 'rspec'
-gem 'pry'
+gem 'capybara', '~> 3.40'
+gem 'site_prism', '~> 5.1'
+gem 'selenium-webdriver', '~> 4.47'
+gem 'cucumber', '~> 10.1'
+gem 'rspec', '~> 3.13'
+gem 'pry', '~> 0.15'
 
