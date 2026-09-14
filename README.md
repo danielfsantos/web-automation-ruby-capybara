@@ -13,6 +13,7 @@ Selenium WebDriver — driver do navegador (Chrome)
 RSpec — asserções (expect)
 Pry — debug interativo
 📁 Estrutura do projeto
+```
 .
 ├── features/
 │   ├── login.feature                    # Cenários em Gherkin (login e carrinho)
@@ -29,6 +30,9 @@ Pry — debug interativo
 │   └── ruby-tests.yml                   # Pipeline de CI (GitHub Actions)
 ├── Gemfile
 └── Gemfile.lock
+```
+
+
 ✅ Pré-requisitos
 Ruby 3.0+ (recomendado 3.3, mesma versão usada no CI)
 Bundler
